@@ -16,7 +16,7 @@ path = "src/main.rs"
 [dependencies]
 dirs = "4.0.0"
 reqwest = { version = "0.11", features = ["blocking", "json"] }
-rustix = {version = "0.36.8", features = ["use-libc","process"]}
+rustix = {version = "0.37.1", features = ["use-libc","process"]}
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0.93"
 
