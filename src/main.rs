@@ -1,7 +1,7 @@
 use dirs;
 use reqwest::blocking::Client;
 use reqwest::header::{HeaderMap, AUTHORIZATION, CONTENT_TYPE};
-use rustix::process;
+
 use serde::{Deserialize, Serialize};
 use std::fs::OpenOptions;
 use std::{
@@ -43,12 +43,6 @@ fn main() -> Result<(), Error> {
     let chatlog_path = dirs::home_dir()
         .expect("Failed to get home directory")
         .join(".chatgpt")
-        .join(
-            process::getppid()
-                .expect("Failed to get parent process id")
-                .as_raw_nonzero()
-                .to_string(),
-        )
         .join("chatlog.json");
 
     fs::create_dir_all(chatlog_path.parent().unwrap())?;
